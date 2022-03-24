@@ -1,32 +1,67 @@
-<img alt="Banner Trilha Flutter" title="#bannertrilhaflutter" src="./assets/banner.jpg" />
 
 <h1 align="center"> 
-  :iphone:   Trilha de Desenvolvimento Mobile com Flutter  :iphone:
+	:notebook: Lista de Tarefas :notebook:
 </h1>
 
 <h4 align="center"> 
-  Neste repositório estão todos os desenvolvimentos realizados durante o aprendizado do framework Flutter.
-    </br>
-  Cada branch representa um curso ou projeto, onde conterão os aplicativos criados durante as respectivas trilhas de aprendizado.
-</h4>
-
-<h4 align="center"> 
-	🚧   Em construção   🚧
+	🚧   Concluído   🚧
 </h4>
 
 ---
 
-<h2> 
-  Trilhas
-</h2>
+<h2>💻 Sobre o projeto</h2>
+<p>
+	É uma aplicação desenvolvida com o objetivo de criar, ler, editar e apagar tarefas.
+	<br>
+	O projeto foi desenvolvido como forma avaliativa do curso Fundamentos de Flutter ofertado pela Dell EAD em parceria com a UECE.
+</p>
+<br>
 
-   * [Desenvolvimento de Sistemas Mobile](https://github.com/mdasantana/flutter/tree/ds_mobile)
-   		* Aplicativo desenvolvido durante a disciplina do curso de Técnico em Desenvolvimento de Sistemas do SENAI.
-   * [Fundamentos de Flutter](https://github.com/mdasantana/flutter/tree/dell_lead)
-   		* Aplicativo desenvolvido durante o curso de Flutter do Dell EAD em parceria com a UECE.
-   * [Desenvolvimento Mobile com Flutter](https://github.com/mdasantana/flutter/tree/cubos_academy)
-   		* Aplicativos desenvolvidos durante o curso de Flutter da Cubos Adacemy.
- 
+---
+
+<h2>⚙️ Funcionalidades</h2>
+<h4>Os usuários que acessam o aplicativo podem:</h4>
+
+  - [x] Ver todas as tarefas criadas.
+  - [x] Ver uma tarefa específica.
+  - [x] Editar ou apagar uma tarefa existente.
+<br>
+
+---
+
+<h2>🎨 Telas</h2>
+
+<h4>O aplicativo conta com 3 telas, sendo elas:</h4>
+
+<table>
+    <tr>
+      <td>Tela Inicial<h6>Quando não existem tarefas a serem exibidas</h6></td>
+      <td>Tela Inicial<h6>Quando existem tarefas a serem exibidas</h6></td>
+			<td>Tela de Criação<h6>São criadas com título e descrição</h6></td>
+      <td>Tela de Visualização<h6>Com os botões de Edição e Deleção</h6></td>
+    </tr>
+    <tr>
+      <td><img height="400px" width="180px" alt="Tela Inicial" title="#telaInicial" src="./assets/tela_inicial.jpeg" /></td>
+      <td><img height="400px" width="180px" alt="Tela Inicial" title="#telaInicial" src="./assets/tela_lista_tarefas.jpeg" /></td>
+      <td><img height="400px" width="180px" alt="Tela Principal" title="#telaprincipal" src="./assets/tela_create.jpeg" /></td>
+      <td><img height="400px" width="180px" alt="Tela de Lista de Produtos" title="#telalistaprodutos" src="./assets/Tela_RUD.jpeg" /></td>
+    </tr>
+</table>
+
+<br>
+
+---
+
+## 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+### **Aplicativo**
+
+- **Flutter**
+  -  MOBX
+  		-  Utilizado para o gerenciamento do estado da aplicação e simulação do CRUD nas tarefas. 
+
 ---
 
 <h2>
