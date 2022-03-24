@@ -17,7 +17,6 @@
 </p>
 <br>
 
----
 
 <h2>⚙️ Funcionalidades</h2>
 <h4>Os usuários que acessam o aplicativo podem:</h4>
@@ -26,8 +25,6 @@
   - [x] Ver uma tarefa específica.
   - [x] Editar ou apagar uma tarefa existente.
 <br>
-
----
 
 <h2>🎨 Telas</h2>
 
@@ -47,10 +44,7 @@
       <td><img height="400px" width="180px" alt="Tela de Lista de Produtos" title="#telalistaprodutos" src="./assets/Tela_RUD.jpeg" /></td>
     </tr>
 </table>
-
 <br>
-
----
 
 ## 🛠 Tecnologias
 
@@ -62,7 +56,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
   -  MOBX
   		-  Utilizado para o gerenciamento do estado da aplicação e simulação do CRUD nas tarefas. 
 
----
+<br>
 
 <h2>
 	:bookmark_tabs: Licença
@@ -70,6 +64,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 <h4>
 	Este projeto esta sobe a licenca <a target="_blank" href="./LICENSE">MIT</a>
 </h4>
+
+<br>
 
 <h2>
 	👨‍💻 Autor
