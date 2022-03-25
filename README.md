@@ -17,17 +17,15 @@
 ---
 
 <h2> 
-  Trilhas
+  Desenvolvimentos
 </h2>
 
-   * [Desenvolvimento de Sistemas Mobile](https://github.com/mdasantana/flutter/tree/ds_mobile)
+   * [M.DAS Estoque](https://github.com/mdasantana/flutter/tree/mdas_estoque)
    		* Aplicativo desenvolvido durante a disciplina do curso de Técnico em Desenvolvimento de Sistemas do SENAI.
-   * [Fundamentos de Flutter](https://github.com/mdasantana/flutter/tree/dell_lead)
+   * [Lista de Tarefas](https://github.com/mdasantana/flutter/tree/lista_tarefas)
    		* Aplicativo desenvolvido durante o curso de Flutter do Dell EAD em parceria com a UECE.
-   * [Desenvolvimento Mobile com Flutter](https://github.com/mdasantana/flutter/tree/cubos_academy)
-   		* Aplicativos desenvolvidos durante o curso de Flutter da Cubos Adacemy.
  
----
+<br>
 
 <h2>
 	:bookmark_tabs: Licença
@@ -35,6 +33,8 @@
 <h4>
 	Este projeto esta sobe a licenca <a target="_blank" href="./LICENSE">MIT</a>
 </h4>
+<br>
+
 
 <h2>
 	👨‍💻 Autor
