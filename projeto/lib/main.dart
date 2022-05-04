@@ -1,4 +1,7 @@
+import 'package:calculator/data/buttons.data.dart';
 import 'package:flutter/material.dart';
+
+import 'controllers/calculator.controler.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,13 +12,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Calculadora',
-      // theme: ThemeData(
-      //   primarySwatch: Colors.blue,
-      // ),
       home: const MyHomePage(),
     );
   }
@@ -29,43 +28,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  ButtonsProvider buttonsProvider = ButtonsProvider();
+  List<Map<String, dynamic>> _botoes = [];
   String _descOperacao = "";
-  String _valorDigitado = "0";
-  num? _primeiroOperando;
-  num? _segundoOperando;
+  String? _resultado;
+  TextEditingController _inputController = new TextEditingController();
 
-  final List<String> _textoBotoes = [
-    "A/C",
-    "-/+",
-    "%",
-    "÷",
-    "7",
-    "8",
-    "9",
-    "*",
-    "4",
-    "5",
-    "6",
-    "-",
-    "1",
-    "2",
-    "3",
-    "+",
-    "0",
-    ".",
-    "="
-  ];
-  final List<String> _simbolos = [
-    "A/C",
-    "-/+",
-    "%",
-    "÷",
-    "*",
-    "-",
-    "+",
-    ".",
-    "="
-  ];
+  @override
+  void initState() {
+    _botoes = buttonsProvider.botoes;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * .30,
                 decoration: BoxDecoration(
-                  color: Colors.green[700],
+                  color: Colors.lightGreenAccent.withOpacity(0.7),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(16.0),
                   ),
@@ -94,19 +67,47 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisSize: MainAxisSize.max,
                     children: [
                       Expanded(
-                        flex: 8,
+                        flex: 6,
                         child: Align(
                           alignment: Alignment.centerRight,
-                          child: Text(
-                            "$_valorDigitado",
+                          child: TextField(
+                            controller: _inputController,
+                            maxLines: 1,
+                            keyboardType: TextInputType.none,
+                            textAlign: TextAlign.right,
                             style: TextStyle(
                               color: Colors.black,
                               fontFamily: 'Digital 7',
                               fontSize: 56,
                               fontStyle: FontStyle.normal,
                             ),
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: 8.0,
+                                vertical: 16.0,
+                              ),
+                            ),
+                            autofocus: true,
+                            cursorHeight: 40.0,
+                            cursorWidth: 2.0,
+                            cursorColor: Colors.orange[700],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Align(
+                          alignment: Alignment.topRight,
+                          child: TextoCalculadora(
+                            texto:
+                                _resultado == null ? "" : _resultado.toString(),
+                            color: Colors.black,
+                            fontSize: 48,
                           ),
                         ),
                       ),
@@ -121,15 +122,11 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: Colors.black,
                               size: 32,
                             ),
-                            Text(
-                              "$_descOperacao",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: 'Digital 7',
-                                fontSize: 24,
-                                fontStyle: FontStyle.normal,
-                              ),
-                            )
+                            TextoCalculadora(
+                              texto: _descOperacao,
+                              color: Colors.black,
+                              fontSize: 24,
+                            ),
                           ],
                         ),
                       ),
@@ -144,57 +141,78 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * .6,
                 child: GridView.count(
+                  primary: false,
                   crossAxisCount: 4,
                   mainAxisSpacing: 8,
                   crossAxisSpacing: 8,
                   children: List.generate(
-                    _textoBotoes.length,
-                    (index) => Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.black87,
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 5,
-                        ),
-                      ),
-                      child: Center(
-                        child: GestureDetector(
-                          onTap: () {
+                    _botoes.length,
+                    (index) => GestureDetector(
+                      onTap: () {
+                        switch (_botoes[index]["action"]) {
+                          case "CLEAR_ALL":
                             setState(() {
-                              switch (_textoBotoes[index]) {
-                                case "+":
-                                  _descOperacao = "ADD";
-                                  break;
-                                case "-":
-                                  _descOperacao = "SUBTRACTION";
-                                  break;
-                                case "*":
-                                  _descOperacao = "MULTIPLICATION";
-                                  break;
-                                case "÷":
-                                  _descOperacao = "DIVISION";
-                                  break;
-                                default:
-                              }
-                              _valorDigitado = _valorDigitado == "0"
-                                  ? _textoBotoes[index]
-                                  : _valorDigitado + _textoBotoes[index];
+                              _inputController.text = "";
+                              _descOperacao = "CLEAR";
+                              _resultado = "";
                             });
-                          },
-                          child: Text(
-                            "${_textoBotoes[index]}",
-                            style: TextStyle(
-                              color: _simbolos.contains(_textoBotoes[index])
-                                  ? Colors.orange[700]
-                                  : Colors.white70,
-                              fontFamily: 'Digital 7',
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FontStyle.normal,
-                            ),
-                          ),
-                        ),
+                            break;
+                          case "CLEAR":
+                            if (_inputController.text.isNotEmpty)
+                              _inputController.text = _inputController.text
+                                  .substring(
+                                      0, _inputController.text.length - 1);
+                            break;
+                          case "ADD":
+                            setState(() {
+                              _descOperacao = "ADD";
+                              _inputController.text =
+                                  _inputController.text + "+";
+                            });
+                            break;
+                          case "PERCENT":
+                            setState(() {
+                              _descOperacao = "PERCENT";
+                            });
+                            break;
+                          case "DIVIDE":
+                            setState(() {
+                              _descOperacao = "DIVIDE";
+                              _inputController.text =
+                                  _inputController.text + "/";
+                            });
+                            break;
+                          case "MULTIPLY":
+                            setState(() {
+                              _descOperacao = "MULTIPLY";
+                              _inputController.text =
+                                  _inputController.text + "*";
+                            });
+                            break;
+                          case "SUBTRACT":
+                            setState(() {
+                              _descOperacao = "SUBTRACT";
+                              _inputController.text =
+                                  _inputController.text + "-";
+                            });
+                            break;
+                          case "OPERATE":
+                            setState(() {
+                              _resultado = Calculate()
+                                  .calculadora(_inputController.text)
+                                  .toString();
+                              _descOperacao = "RESULT";
+                            });
+                            break;
+                          case "REVERSE_SIGNAL":
+                            break;
+                          default:
+                            _inputController.text += _botoes[index]["value"];
+                            break;
+                        }
+                      },
+                      child: BotaoCalculadora(
+                        botao: _botoes[index],
                       ),
                     ),
                   ),
@@ -203,6 +221,70 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class BotaoCalculadora extends StatelessWidget {
+  const BotaoCalculadora({
+    Key? key,
+    required Map<String, dynamic> botao,
+  })  : _botao = botao,
+        super(key: key);
+
+  final Map<String, dynamic> _botao;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: Colors.black87,
+        border: Border.all(
+          color: Colors.black,
+          width: 5,
+        ),
+      ),
+      child: Center(
+        child: _botao["isIcon"]
+            ? Icon(
+                _botao["value"],
+                color: _botao["color"],
+                size: 32,
+              )
+            : TextoCalculadora(
+                texto: _botao["value"], fontSize: 32, color: _botao["color"]),
+      ),
+    );
+  }
+}
+
+class TextoCalculadora extends StatelessWidget {
+  const TextoCalculadora({
+    Key? key,
+    required String texto,
+    required Color color,
+    required double fontSize,
+  })  : _texto = texto,
+        _color = color,
+        _fontSize = fontSize,
+        super(key: key);
+
+  final String _texto;
+  final Color _color;
+  final double _fontSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      "$_texto",
+      style: TextStyle(
+        color: _color,
+        fontFamily: 'Digital 7',
+        fontSize: _fontSize,
+        fontWeight: FontWeight.bold,
+        fontStyle: FontStyle.normal,
       ),
     );
   }
