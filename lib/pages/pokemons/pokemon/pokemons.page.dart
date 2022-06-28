@@ -66,18 +66,18 @@ class _PokemonsPageState extends State<PokemonsPage> {
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Expanded(
-              flex: 10,
-              child: GridView.count(
-                crossAxisCount: 2,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                children: List.generate(
-                  15,
-                  (index) => const CardPokemon(),
-                ),
-              ),
-            ),
+            // Expanded(
+            //   flex: 10,
+            //   child: GridView.count(
+            //     crossAxisCount: 2,
+            //     mainAxisSpacing: 10,
+            //     crossAxisSpacing: 10,
+            //     children: List.generate(
+            //       15,
+            //       (index) => CardPokemon(),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
