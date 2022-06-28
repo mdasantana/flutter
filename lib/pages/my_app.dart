@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokeapp/pages/pokemons/pokemon/pokemon.page.dart';
 import 'package:pokeapp/pages/pokemons/pokemon/pokemons.page.dart';
+import 'my_home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -9,11 +10,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'PokeApp',
-      initialRoute: "pokemon",
+      initialRoute: "home",
       debugShowCheckedModeBanner: false,
       routes: {
+        "home": (context) => const MyHomePage(),
         "allpokemons": (context) => const PokemonsPage(),
-        "pokemon": (context) => const PokemonPage()
+        // "pokemon": (context) => PokemonPage()
       },
     );
   }
