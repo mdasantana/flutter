@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 class AppTextStyles {
   static const TextStyle white10w700Roboto = TextStyle(
-    fontSize: 14.0,
+    fontSize: 10.0,
     fontWeight: FontWeight.w700,
     color: Colors.white,
     fontFamily: "Roboto",
     letterSpacing: 0.64,
   );
 
-  static const TextStyle white14w700Roboto = TextStyle(
-    fontSize: 14.0,
+  static const TextStyle white12w700Roboto = TextStyle(
+    fontSize: 12.0,
     fontWeight: FontWeight.w700,
     color: Colors.white,
     fontFamily: "Roboto",
