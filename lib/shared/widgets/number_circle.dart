@@ -36,7 +36,7 @@ class NumberCircle extends StatelessWidget {
           ),
           Text(
             number,
-            style: AppTextStyles.white14w700Roboto,
+            style: AppTextStyles.white12w700Roboto,
           )
         ],
       ),
