@@ -22,7 +22,7 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
     color: Colors.white,
     fontFamily: "Roboto",
-    letterSpacing: 0.64,
+    letterSpacing: 0,
   );
 
   static const TextStyle white18w700Roboto = TextStyle(
