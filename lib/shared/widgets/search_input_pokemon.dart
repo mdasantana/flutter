@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '../constants/app_text_styles.dart';
 
-typedef OnPressedFunction = Function();
+typedef OnPressedInput = Function();
 
 class SearchPokemonTextInput extends StatelessWidget {
   final double width;
   final double height;
-  final OnPressedFunction onPressed;
+  final OnPressedInput onPressed;
 
   const SearchPokemonTextInput(
       {Key? key,
