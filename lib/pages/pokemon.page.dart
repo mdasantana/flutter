@@ -151,10 +151,10 @@ class _PokemonPageState extends State<PokemonPage> {
                         flex: 4,
                         child: CoverDetailsPokemon(
                           pokemon: pokemon,
-                          onPressedPrevious: int.parse(pokemon.number) == 807
+                          onPressedPrevious: int.parse(pokemon.number) == 1
                               ? null
-                              : onPressedToNext,
-                          onPressedNext: int.parse(pokemon.number) == 1
+                              : onPressedToPrevious,
+                          onPressedNext: int.parse(pokemon.number) == 807
                               ? null
                               : onPressedToNext,
                         ),
