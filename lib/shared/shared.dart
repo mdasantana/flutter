@@ -1,6 +1,7 @@
 export 'package:pokeapp/shared/constants/app_colors.dart';
 export 'package:pokeapp/shared/constants/app_gradients.dart';
 export 'package:pokeapp/shared/constants/app_text_styles.dart';
+export 'package:pokeapp/shared/constants/app_strings.dart';
 export '../../../shared/widgets/card_pokemon.dart';
 export '../../../shared/widgets/characteristic_pokemon.dart';
 export '../../../shared/widgets/detail_column.dart';
@@ -8,3 +9,7 @@ export '../../../shared/widgets/loading_builder_image.dart';
 export '../../../shared/widgets/number_circle.dart';
 export '../../../shared/widgets/search_input_pokemon.dart';
 export '../../../shared/widgets/type_button.dart';
+export '../../../shared/widgets/previous_next_button.dart';
+export '../../../shared/widgets/loading_search_pokemon.dart';
+export '../../../shared/widgets/cover_details_pokemon.dart';
+export '../../../shared/widgets/details_pokemon.dart';
