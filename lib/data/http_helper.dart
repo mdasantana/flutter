@@ -14,15 +14,6 @@ class HttpHelper {
     return pokemon;
   }
 
-  // Future<Pokemon> _getPokemonByName(String pokemonName) async {
-  //   Uri uri = Uri.parse("https://pokeapi.glitch.me/v1/pokemon/$pokemonName");
-  //   var result = await http.get(uri);
-  //   List<dynamic> pokemonList = jsonDecode(result.body);
-  //   Map<String, dynamic> pokemonData = pokemonList.first;
-  //   Pokemon pokemon = Pokemon.fromJson(pokemonData);
-  //   return pokemon;
-  // }
-
   Future<Pokemon> getPokemonById({int? id}) async {
     Random random = Random();
     int pokemonId = id ?? random.nextInt(807);
